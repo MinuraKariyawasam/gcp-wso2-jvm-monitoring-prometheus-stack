@@ -1323,27 +1323,27 @@ serverFiles:
   ## Ref: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
   alerting_rules.yml:
     groups:
-      - name: Instances
+      - name: JVM_Memory
         rules:
-          - alert: InstanceDown
+          - alert: HighJvmMemoryUsage
             expr: up == 0
             for: 5m
             labels:
-              severity: page
+              severity: critical
             annotations:
-              description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.'
-              summary: 'Instance {{ $labels.instance }} down'
+              description: '{{ $labels.pod }} has been used high jvm memory for more than 5 minutes.'
+              summary: 'Pod {{ $labels.pod }} high jvm memory usage'
 
-      - name: Instances
+      - name: JVM_Thread_Count
         rules:
-          - alert: InstanceDown
+          - alert: HighJvmThreadCountUsage
             expr: up == 0
             for: 5m
             labels:
-              severity: page
+              severity: critical
             annotations:
-              description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes.'
-              summary: 'Instance {{ $labels.instance }} down'
+              description: '{{ $labels.pod }} has been used high jvm thread count for more than 5 minutes.'
+              summary: 'Pod {{ $labels.instance }} high jvm thread count'
 
   alerts: {}
 
