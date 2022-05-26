@@ -1303,10 +1303,10 @@ alertmanagerFiles:
         email_configs:
         - to: 'minura@wso2.com'
           from: 'minura@wso2.com'
-          auth_username: AKIATDBHGDQO52V22X5U
-          auth_password: BHOqm8Es3VNwmNtJ8rPvE7udYUvQ1QNpkMxWSlTkmmpo
+          auth_username: AKIATDBHGDQOXUWTIPFG
+          auth_password: BHzryqALSeyTG1+iz69OxyLYIT1xl9wpDxESHhLmS6k3
           require_tls: yes
-          smarthost: email-smtp.us-east-1.amazonaws.com
+          smarthost: email-smtp.us-west-1.amazonaws.com
           send_resolved: true
 
     route:
