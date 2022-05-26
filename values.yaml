@@ -1325,19 +1325,19 @@ serverFiles:
     groups:
       - name: JVM_Memory
         rules:
-          - alert: HighJvmMemoryUsage
-            expr: up == 0
+          - alert: HighJvmHeapMemoryUsage
+            expr: (avg(jvm_memory_bytes_used{area="heap"})/avg(jvm_memory_bytes_max{area="heap"}))*100 > 10
             for: 5m
             labels:
               severity: critical
             annotations:
-              description: '{{ $labels.pod }} has been used high jvm memory for more than 5 minutes.'
-              summary: 'Pod {{ $labels.pod }} high jvm memory usage'
+              description: '{{ $labels.pod }} has been used high jvm heap memory for more than 5 minutes.'
+              summary: 'Pod {{ $labels.pod }} high jvm heap memory usage'
 
       - name: JVM_Thread_Count
         rules:
           - alert: HighJvmThreadCountUsage
-            expr: up == 0
+            expr: avg(jvm_threads_current) > 100
             for: 5m
             labels:
               severity: critical
