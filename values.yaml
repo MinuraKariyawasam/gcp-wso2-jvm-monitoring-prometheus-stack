@@ -1306,7 +1306,7 @@ alertmanagerFiles:
           auth_username: AKIATDBHGDQOXUWTIPFG
           auth_password: BHzryqALSeyTG1+iz69OxyLYIT1xl9wpDxESHhLmS6k3
           require_tls: yes
-          smarthost: email-smtp.us-west-1.amazonaws.com
+          smarthost: email-smtp.us-west-1.amazonaws.com:587
           send_resolved: true
 
     route:
